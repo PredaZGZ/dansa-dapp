@@ -1,15 +1,21 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
-class App extends Component {
-  render() {
-    return (
-      <div>
-        <h1>Welcome to my React App!</h1>
-        <p>This is the main component.</p>
+//import PrivateRoute from './Helpers/PrivateRoute';
+
+//Pages
+import Login from './Pages/Login';
+import Dashboard from './Pages/Dashboard';
+
+export default function App() {
+  return (
+    <div className="App">
+        <Router>
+          <Routes>
+            <Route path='/' element={<Dashboard/>}/>
+            <Route path='/login' element={<Login/>}/>
+          </Routes>
+        </Router>
       </div>
-    );
-  }
+  );
 }
-
-export default App;
-``
