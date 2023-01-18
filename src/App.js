@@ -8,8 +8,6 @@ import PrivateRoute from './Helpers/PrivateRoute';
 import Login from './Pages/Login';
 import Dashboard from './Pages/Dashboard';
 
-//Recordar Probar AUTH "/" -> Private route y funciona
-
 export default function App() {
   return (
     <div className="App">
