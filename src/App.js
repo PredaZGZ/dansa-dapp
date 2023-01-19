@@ -7,17 +7,17 @@ import PrivateRoute from './Helpers/PrivateRoute';
 //Pages
 import Login from './Pages/Login';
 import Dashboard from './Pages/Dashboard';
+import Vault from './Pages/Vault/Vault';
 
 export default function App() {
   return (
-    <div className="App">
       <Router>
         <Routes>
           <Route path="/" element={<Login/>}/>
           <Route path="/login" element={<Login/>}/>
           <Route path="/dashboard" element={<PrivateRoute><Dashboard/></PrivateRoute>}/>
+          <Route path="/vault" element={<PrivateRoute><Vault/></PrivateRoute>}/>
         </Routes>
       </Router>
-    </div>
   );
 }
