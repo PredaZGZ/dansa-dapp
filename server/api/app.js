@@ -15,6 +15,6 @@ const User = require('./routes/auth/auth');
 
 //Routes Middlewares
 app.use('/auth', User);
-//app.use('/product', verifyToken, Product); //Ejemplo de protegida
+app.use('/user', verifyToken, User); //Ejemplo de protegida
 
 module.exports = app
