@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
-import validateToken from "../Helpers/validateToken";
+import ValidateToken from "../Helpers/validateToken";
+import { useDispatch } from "react-redux";
+import { setToken } from "../Slices/AuthSlice";
 
 
 const Login = () => {
@@ -10,9 +12,11 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
 
+  const dispatch = useDispatch();
+
   const token = sessionStorage.getItem('token');
   try {
-    validateToken(token).then((res)=> {
+    ValidateToken(token).then((res)=> {
       if (res.status === 200) {
         navigate('/dashboard');
       }})
@@ -29,7 +33,7 @@ const Login = () => {
     axios.post("http://localhost:4000/auth/login", reqBody)
       .then((data) => {
         if (data) {
-          sessionStorage.setItem('token', data.data.data.token);
+          dispatch(setToken(data.data.data.token))
           navigate("/dashboard");
           }
       })

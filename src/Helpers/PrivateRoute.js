@@ -1,11 +1,13 @@
+import { useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
-import validateToken from './validateToken'
+import ValidateToken from './validateToken'
 
 const PrivateRoute = ({ children }) => {
-    const token = sessionStorage.getItem('token');
+
+    const token = useSelector((state) => state.auth.userToken)
     if (token === '' || token === null) return <Navigate to="/login" />;
     else 
-    if (validateToken(token)) {
+    if (ValidateToken(token)) {
         return children
     } else {
         return <Navigate to="/login" />;

@@ -24,6 +24,7 @@
     "@hapi/joi": "^17.1.1",
     "@headlessui/react": "^1.7.7",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.3",
+    "@reduxjs/toolkit": "^1.9.1",
     "@svgr/webpack": "^5.5.0",
     "axios": "^1.2.2",
     "babel-jest": "^27.4.2",
