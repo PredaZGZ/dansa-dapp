@@ -78,16 +78,16 @@ router.post('/login', async (req, res) => {
 
 router.post('/validate', async (req, res) => {
     const token = req.header('auth-token');
-    if (!token) return res.status(401).json({ error: 'Acceso denegado1' })
+    if (!token) return res.status(401).json({ error: 'No se ha encontrado la sesión.' })
     try {
         const verified = jwt.verify(token, config.TOKEN_SECRET)
         if(verified){
-            res.status(200).json({error: null})
+            res.status(200).json(verified)
         } else {
-            res.status(401).json({ error: 'Acceso denegado2' })
+            res.status(401).json({ error: 'Ha expirado la sesión.' })
         }
     } catch (error) {
-        res.status(400).json({error: 'token no es válido'})
+        res.status(400).json({error: 'Ha expirado la sesión'})
     }
     
 })

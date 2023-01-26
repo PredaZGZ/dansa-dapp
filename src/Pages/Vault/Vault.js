@@ -3,7 +3,7 @@ import Sidebar from "../../Components/Sidebar";
 export default function Vault() {
     return (
       <>
-        <div class="flex">
+        <div className="flex">
           <Sidebar />
           <main>
               <h2>FEO</h2>

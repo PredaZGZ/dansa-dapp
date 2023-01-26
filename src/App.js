@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Navigate, Route, Routes } from 'react-router-dom';
 import './App.css';
 
 import PrivateRoute from './Helpers/PrivateRoute';
@@ -17,6 +17,7 @@ export default function App() {
           <Route path="/login" element={<Login/>}/>
           <Route path="/dashboard" element={<PrivateRoute><Dashboard/></PrivateRoute>}/>
           <Route path="/vault" element={<PrivateRoute><Vault/></PrivateRoute>}/>
+          <Route path="*" element={<Navigate to="/dashboard"/>}/>
         </Routes>
       </Router>
   );

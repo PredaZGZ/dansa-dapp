@@ -13,9 +13,18 @@ const validateToken = (token) => {
     } else if(isExpired(token)){
         return false;
     } else {
-        return axios.post('http://localhost:4000/auth/validate', {}, config)
+        return axios.post('http://localhost:4000/auth/validate', {}, config).then(res => {
+            if (res.status === 200) {
+                sessionStorage.setItem("user", JSON.stringify(res.data))
+                return res;
+            }
+            else {
+                return false;
+            }
+        })
     }
     
 }
+
 
 export default validateToken;

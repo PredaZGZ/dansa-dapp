@@ -11,10 +11,10 @@ app.use(bodyParser.urlencoded({extended: false}));
 
 //Carga de rutas
 const verifyToken = require('./routes/auth/verify-token');
-const User = require('./routes/auth/auth'); 
+const Auth = require('./routes/auth/auth'); 
 
 //Routes Middlewares
-app.use('/auth', User);
-app.use('/user', verifyToken, User); //Ejemplo de protegida
+app.use('/auth', Auth);
+//app.use('/user', verifyToken, User); //Ejemplo de protegida
 
 module.exports = app

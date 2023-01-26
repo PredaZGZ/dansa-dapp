@@ -10,7 +10,7 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
 
-  const token = localStorage.getItem('token');
+  const token = sessionStorage.getItem('token');
   try {
     validateToken(token).then((res)=> {
       if (res.status === 200) {
@@ -29,7 +29,7 @@ const Login = () => {
     axios.post("http://localhost:4000/auth/login", reqBody)
       .then((data) => {
         if (data) {
-          localStorage.setItem('token', data.data.data.token);
+          sessionStorage.setItem('token', data.data.data.token);
           navigate("/dashboard");
           }
       })

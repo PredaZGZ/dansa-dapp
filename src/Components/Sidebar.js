@@ -5,6 +5,7 @@ import { CiVault } from "react-icons/ci"
 import { AiOutlineUser } from "react-icons/ai"
 
 export default function Sidebar() {
+    //const User = JSON.parse(sessionStorage.getItem("user"));
   return (
     <>
     <aside className="w-64 left-0 top-0 h-screen">
@@ -43,7 +44,7 @@ export default function Sidebar() {
                 <li>
                     <div className="flex items-center p-2 text-white">
                         <AiOutlineUser />
-                        <span className="ml-3">User</span>
+                        <span className="ml-3">{}</span>
                     </div>
                 </li>
 
