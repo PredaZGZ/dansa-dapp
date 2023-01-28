@@ -11,8 +11,8 @@ export default function Sidebar() {
     const { userInfo } = useSelector((state) => state.auth)
     const dispatch = useDispatch();
     
-    let activeClassName = "flex items-center p-2 rounded-lg text-white bg-gray-700";
-    let notactiveClassName = "flex items-center p-2 rounded-lg text-white hover:bg-gray-700";
+    let activeClassName = "flex items-center p-2 rounded-lg text-white bg-zinc-700";
+    let notactiveClassName = "flex items-center p-2 rounded-lg text-white hover:bg-zinc-700";
 
     const handleLogout = () => {
         dispatch(Logout());
@@ -21,7 +21,7 @@ export default function Sidebar() {
   return (
     <>
     <aside className="w-1/7 h-screen">
-        <div className="px-3 py-4 overflow-y-auto bg-gray-800 h-full flex flex-col justify-between">
+        <div className="px-3 py-4 overflow-y-auto bg-zinc-800 h-full flex flex-col justify-between">
             <ul className="space-y-2">
                 <li>
                     <NavLink to="/dashboard" className={({ isActive }) =>
@@ -48,7 +48,7 @@ export default function Sidebar() {
                     </NavLink>
                 </li>
                 <li>
-                    <div className="my-3 border-t border-gray-700"></div>
+                    <div className="my-3 border-t border-zinc-700"></div>
                 </li>
                 <li>
                     <NavLink to="/settings" className={({ isActive }) =>
@@ -60,7 +60,7 @@ export default function Sidebar() {
                 </li>
 
             </ul>
-            <ul className="pt-4 mt-4 space-y-2 border-t border-gray-700">
+            <ul className="pt-4 mt-4 space-y-2 border-t border-zinc-700">
                 <li>
                     <div className="flex justify-between">
                         <div className="flex items-center p-2 text-white">

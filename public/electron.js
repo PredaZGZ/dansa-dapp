@@ -11,8 +11,9 @@ function createWindow() {
       nodeIntegration: true,
     },
     autoHideMenuBar: true,
+    frame: false,
   });
-
+  
   win.loadURL(
     isDev
       ? 'http://localhost:3000'
