@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+
 import { GoDashboard, GoCalendar, GoSettings } from "react-icons/go";
 import { CiLogout, CiVault } from "react-icons/ci";
 import { AiOutlineUser } from "react-icons/ai";
@@ -20,7 +21,7 @@ export default function Sidebar() {
 
   return (
     <>
-    <aside className="w-1/7 h-screen">
+    <aside className="w-1/7 shadow">
         <div className="px-3 py-4 overflow-y-auto bg-zinc-800 h-full flex flex-col justify-between">
             <ul className="space-y-2">
                 <li>
