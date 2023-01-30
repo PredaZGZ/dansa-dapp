@@ -1,15 +1,13 @@
-
-
 function handleClose() {
-    console.log("close");
+    window.electronAPI.close()
   }
   
   function handleMinimize() {
-    console.log("min");
+    window.electronAPI.min()
   }
   
   function handleMaximize() {
-    console.log("max");
+    window.electronAPI.max()
   }
 
 export default function Titlebar () {
