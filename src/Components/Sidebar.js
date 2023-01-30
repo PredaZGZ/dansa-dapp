@@ -22,7 +22,7 @@ export default function Sidebar() {
 
   return (
     <>
-    <aside className="w-1/7 shadow">
+    <aside className="min-w-fit w-1/6 shadow">
         <div className="px-3 py-4 overflow-y-auto bg-zinc-800 h-full flex flex-col justify-between">
             <ul className="space-y-2">
                 <li>

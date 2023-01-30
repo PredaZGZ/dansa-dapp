@@ -8,7 +8,7 @@ export default function Base ({ children}) {
         <>
         <div className="flex flex-col justify-between h-screen">
             <Titlebar />
-            <div className="flex bg-zinc-700 h-full">
+            <div className="flex bg-zinc-700 h-full w-screen">
                 <Sidebar />
                 { children }
             </div>
