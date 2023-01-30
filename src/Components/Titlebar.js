@@ -1,14 +1,16 @@
+
+
 function handleClose() {
     window.electronAPI.close()
-  }
-  
-  function handleMinimize() {
+}
+
+function handleMinimize() {
     window.electronAPI.min()
-  }
-  
-  function handleMaximize() {
+}
+
+function handleMaximize() {
     window.electronAPI.max()
-  }
+}
 
 export default function Titlebar () {
 

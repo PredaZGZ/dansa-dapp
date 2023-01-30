@@ -45,9 +45,9 @@ const Login = () => {
       sendLoginRequest();
     }
     return(
-    <>
+    <div className="flex flex-col h-screen">
       <Titlebar />
-      <div className="flex items-center justify-center min-h-screen bg-gray-100">
+      <div className="h-full flex items-center justify-center bg-gray-100">
         <div className="px-8 py-6 mt-4 text-left bg-white shadow-lg">
           <h3 className="text-2xl font-bold text-center">DANSA</h3>
           {errorMsg &&
@@ -94,7 +94,7 @@ const Login = () => {
           </form>
         </div>
       </div>
-    </>
+    </div>
   )
 }
 

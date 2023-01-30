@@ -2,6 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 
 import { GoDashboard, GoCalendar, GoSettings } from "react-icons/go";
+import { MdFitnessCenter } from "react-icons/md";
 import { CiLogout, CiVault } from "react-icons/ci";
 import { AiOutlineUser } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
@@ -46,6 +47,14 @@ export default function Sidebar() {
                     }>
                         <GoCalendar />
                         <span className="ml-3">Calendar</span>
+                    </NavLink>
+                </li>
+                <li>
+                    <NavLink to="/fitness" className={({ isActive }) =>
+                        isActive ? activeClassName : notactiveClassName
+                    }>
+                        <MdFitnessCenter />
+                        <span className="ml-3">Fitness</span>
                     </NavLink>
                 </li>
                 <li>
