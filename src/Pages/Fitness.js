@@ -1,4 +1,5 @@
 import Base from "../Components/Base";
+import WeightRecord from "../Components/Weight";
 
 export default function Dashboard() {
     return (
@@ -9,6 +10,7 @@ export default function Dashboard() {
                 <div className="flex justify-end">
                   <button className="bg-zinc-800 rounded px-6 py-2 mr-10">Nuevo peso</button>
                 </div>
+                <WeightRecord />
               </section>
           </main>
       </Base>

@@ -3,13 +3,13 @@ import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 import ValidateToken from "../Helpers/validateToken";
 import { useDispatch } from "react-redux";
-import { setToken } from "../Slices/AuthSlice";
+import { setLogin } from "../Slices/AuthSlice";
 import Titlebar from "../Components/Titlebar";
 
 
 const Login = () => {
   const navigate = useNavigate();
-  const [email, setEmail] = useState("");
+  const [email, setEmailform] = useState("");
   const [password, setPassword] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
 
@@ -32,11 +32,11 @@ const Login = () => {
     };
 
     axios.post("http://localhost:4000/auth/login", reqBody)
-      .then((data) => {
-        if (data) {
-          dispatch(setToken(data.data.data.token))
+      .then((res) => {
+        if (res.status === 200) {
+          dispatch(setLogin(res.data));
           navigate("/dashboard");
-          }
+        }
       })
       .catch(()=>{setErrorMsg("Something went wrong")});
     }
@@ -59,7 +59,7 @@ const Login = () => {
                   Email
                   <label>
                     <input
-                      onChange={(e) => setEmail(e.target.value)}
+                      onChange={(e) => setEmailform(e.target.value)}
                       value={email}
                       type="text"
                       placeholder="Email"

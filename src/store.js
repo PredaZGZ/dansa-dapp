@@ -8,4 +8,9 @@ const store = configureStore({
     vault: vaultReducer,
   }
 })
+
+store.subscribe(() => {
+  console.log('Store updated: ', store.getState());
+});
+
 export default store

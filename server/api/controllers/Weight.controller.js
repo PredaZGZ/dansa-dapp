@@ -1,10 +1,12 @@
 const Weight = require('../models/Fitness/Weight');
+const User = require('../models/User');
 
 module.exports = {
     create: async (req, res) => {
         const { userId, weight } = req.body;
         try {
-            const newWeight = new Weight({ user: userId, weight });
+            const user = await User.findById(userId);
+            const newWeight = new Weight({ user, weight });
             const savedWeight = await newWeight.save();
             return res.status(201).json({ weight: savedWeight });
         } catch (error) {

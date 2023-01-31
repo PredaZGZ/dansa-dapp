@@ -70,26 +70,28 @@ router.post('/login', async (req, res) => {
         email: user.email
     }, config.TOKEN_SECRET, {expiresIn: '1h'})
     
-    res.header('auth-token', token).json({
-        error: null,
-        data: {token}
+    return res.json({
+        email : user.email,
+        _id : user._id,
+        name : user.name,
+        token
     })
 })
 
 router.post('/validate', async (req, res) => {
     const token = req.header('auth-token');
-    if (!token) return res.status(401).json({ error: 'No se ha encontrado la sesión.' })
+    if (!token) return res.status(401).json({ error: 'No se ha encontrado la sesión.' });
     try {
-        const verified = jwt.verify(token, config.TOKEN_SECRET)
+        const verified = jwt.verify(token, config.TOKEN_SECRET);
         if(verified){
-            res.status(200).json(verified)
+            res.status(200).json({});
         } else {
-            res.status(401).json({ error: 'Ha expirado la sesión.' })
+            res.status(401).json({ error: 'Ha expirado la sesión.' });
         }
     } catch (error) {
-        res.status(400).json({error: 'Ha expirado la sesión'})
+        res.status(400).json({error: 'Ha expirado la sesión'});
     }
-    
-})
+});
+
 
 module.exports = router;
