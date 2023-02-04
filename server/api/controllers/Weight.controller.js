@@ -3,9 +3,9 @@ const User = require('../models/User');
 
 module.exports = {
     create: async (req, res) => {
-        const { userId, weight } = req.body;
+        const { id, weight } = req.body;
         try {
-            const user = await User.findById(userId);
+            const user = await User.findById(id);
             const newWeight = new Weight({ user, weight });
             const savedWeight = await newWeight.save();
             return res.status(201).json({ weight: savedWeight });
