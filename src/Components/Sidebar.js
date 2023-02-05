@@ -10,7 +10,7 @@ import { Logout } from "../Slices/AuthSlice"
 
 export default function Sidebar() {
 
-    const { userInfo } = useSelector((state) => state.auth)
+    const { user } = useSelector((state) => state.auth)
     const dispatch = useDispatch();
     
     let activeClassName = "flex items-center p-2 rounded-lg text-white bg-zinc-700";
@@ -75,7 +75,7 @@ export default function Sidebar() {
                     <div className="flex justify-between">
                         <div className="flex items-center p-2 text-white">
                             <AiOutlineUser />
-                            <span className="ml-3">{userInfo.name}</span>
+                            <span className="ml-3">{user.name}</span>
                         </div>
                         <div className="flex items-center p-2 text-white">
                             <CiLogout onClick={handleLogout} className="cursor-pointer" />

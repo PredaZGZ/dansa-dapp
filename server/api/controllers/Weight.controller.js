@@ -1,3 +1,4 @@
+const { ErrorResponse } = require('@remix-run/router');
 const Weight = require('../models/Fitness/Weight');
 const User = require('../models/User');
 
@@ -41,4 +42,22 @@ module.exports = {
             return res.status(500).json({ error: error.message });
         }
     },
+    weightsByUserChart: async (req, res) => {
+        try {
+            const weights = await Weight.find({ user: req.params.userId });
+            const data = weights.map(item => {
+                const day = item.date.getUTCDate().toString().padStart(2, '0');
+                const month = (item.date.getUTCMonth() + 1).toString().padStart(2, '0');
+                return {
+                  weight: item.weight,
+                  date: `${day}/${month}`
+                };
+              });
+            console.log(data)
+            return res.status(200).json({data})
+              
+        } catch (error) {
+            return res.status(500).json({ error: error.message })
+        }
+    }
 };

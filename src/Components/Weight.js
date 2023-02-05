@@ -8,7 +8,7 @@ const WeightRecord = () => {
   const [Msg, setMsg] = useState("");
 
   const auth = useSelector((state) => state.auth);
-  const id = auth.userInfo.id;
+  const id = auth.user.id;
 
   const handleSubmit = async (event) => {
     event.preventDefault();
