@@ -45,17 +45,18 @@ module.exports = {
     weightsByUserChart: async (req, res) => {
         try {
             const weights = await Weight.find({ user: req.params.userId });
-            const data = weights.map(item => {
+
+            const data = weights.sort((a, b) => new Date(a.date) - new Date(b.date)).map(item => {
                 const day = item.date.getUTCDate().toString().padStart(2, '0');
                 const month = (item.date.getUTCMonth() + 1).toString().padStart(2, '0');
                 return {
-                  weight: item.weight,
-                  date: `${day}/${month}`
+                    weight: item.weight,
+                    date: `${day}/${month}`
                 };
-              });
-            console.log(data)
-            return res.status(200).json({data})
-              
+            });
+
+            return res.status(200).json({ data })
+
         } catch (error) {
             return res.status(500).json({ error: error.message })
         }
