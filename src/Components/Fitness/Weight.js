@@ -1,14 +1,17 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import axios from "axios";
-import WeightChart from "./Charts/WeightChart"
+import WeightChart from "../Charts/WeightChart"
+import Table from "../Fitness/WeightTable"
 
 const WeightRecord = () => {
   const [weight, setWeight] = useState("");
   const [Msg, setMsg] = useState("");
+  const [table, setTable] = useState(false);
 
   const auth = useSelector((state) => state.auth);
   const id = auth.user.id;
+  const toggleClass = "transform translate-x-5";
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -48,9 +51,30 @@ const WeightRecord = () => {
           >
             Submit
           </button>
+          <div className="my-auto pl-30">
+            <div
+              className="w-12 h-6 flex items-center bg-zinc-400 rounded-full p-1 cursor-pointer"
+              onClick={() => {
+                setTable(!table);
+              }}
+            >
+              <div
+                className = {
+                  "bg-zinc-800 h-5 w-5 rounded-full shadow-md transform duration-300 ease-in-out" +
+                  (!table ? null : toggleClass)
+                }
+              ></div>
+            </div>
+          </div>
         </form>
-        <WeightChart />
-    </div>
+
+        {table ? (
+          <Table />
+        ) : (
+          <WeightChart />
+        )}
+
+      </div>
   );
 };
 

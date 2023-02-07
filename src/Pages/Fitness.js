@@ -1,5 +1,5 @@
 import Base from "../Components/Base";
-import WeightRecord from "../Components/Weight";
+import WeightRecord from "../Components/Fitness/Weight";
 
 export default function Dashboard() {
     return (

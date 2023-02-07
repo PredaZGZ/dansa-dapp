@@ -25,8 +25,8 @@ const WeightChart = () => {
   function CustomTooltip({ payload, label, active }) {
     if (active) {
       return (
-        <div className="">
-          <p className="">{`${label} : ${payload[0].value}`}</p>
+        <div>
+          <p>{`${label} : ${payload[0].value}`}</p>
         </div>
       );
     }
