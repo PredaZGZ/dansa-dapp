@@ -26,7 +26,7 @@ const WeightRecord = () => {
         setWeight("")
         setTimeout(() => {
           setMsg("")
-        }, 3500);
+        }, 2500);
       }
     } catch (error) {
       setMsg(error.message);
