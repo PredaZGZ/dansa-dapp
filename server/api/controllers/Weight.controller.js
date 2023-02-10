@@ -17,7 +17,6 @@ module.exports = {
     update: async (req, res) => {
         const { weight } = req.body;
         try {
-            console.log(weight)
             const updatedWeight = await Weight.findByIdAndUpdate(req.params.id, { weight }, { new: true });
             return res.status(200).json({ weight: updatedWeight });
         } catch (error) {

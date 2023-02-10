@@ -49,7 +49,7 @@ const WeightTable = () => {
     });
     setWeights(updatedWeights);
 
-    axios.put(`http://localhost:4000/fitness/weights/${weight._id}`, updatedWeights, 
+    axios.put(`http://localhost:4000/fitness/weights/${weight._id}`, weight, 
       {
       headers: {
         "auth-token": auth.userToken,
@@ -59,8 +59,17 @@ const WeightTable = () => {
   };
 
   const handleWeightChange = (e, weight) => {
-    weight.weight = e.target.value;
+    setWeights(prevWeights => prevWeights.map(w => {
+      if (w._id === weight._id) {
+        return {
+          ...w,
+          weight: e.target.value
+        };
+      }
+      return w;
+    }));
   };
+  
 
   return (
     <table className="table-auto w-full text-left">
